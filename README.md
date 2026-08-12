@@ -1,5 +1,11 @@
 # Shapeshifter Website — Full Mockup
 
+> ⚠️ **BEFORE GOING LIVE:** every page currently contains
+> `<meta name="robots" content="noindex, nofollow">` so the draft stays out of
+> search engines and AI crawlers while shared via unlisted URL. **Remove that
+> line from all 8 HTML pages at launch** (search the repo for `noindex`) — the
+> site is invisible to Google and AI assistants until you do.
+
 Self-contained static mockup of the redesigned shapeshifter.com, modeled on geminishale.com.
 No build step, no dependencies — open `index.html` in a browser, or push this folder to GitHub
 and serve with GitHub Pages (Settings → Pages → deploy from branch).
@@ -72,6 +78,7 @@ Remove the label pills at launch by deleting the `<figcaption class="swap-tag">`
 - Comparison/alternatives pages (phase 2) — Legal before drafting
 
 **Technical at production build:**
+- REMOVE the `<meta name="robots" content="noindex, nofollow">` draft tag from every page (added so the draft stays out of search engines while shared via unlisted URL)
 - Wire the contact form to CRM/form service (`contact.html` — currently a mock alert)
 - robots.txt (allow AI retrieval/live-fetch bots + Sitemap line), sitemap.xml
 - Organization + WebSite JSON-LD on all pages; FAQPage schema on `resources.html#faq`
