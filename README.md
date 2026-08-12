@@ -6,7 +6,7 @@
 > line from all 8 HTML pages at launch** (search the repo for `noindex`) — the
 > site is invisible to Google and AI assistants until you do.
 
-Self-contained static mockup of the redesigned shapeshifter.com, modeled on geminishale.com.
+Self-contained static mockup of the redesigned shapeshifter.com.
 No build step, no dependencies — open `index.html` in a browser, or push this folder to GitHub
 and serve with GitHub Pages (Settings → Pages → deploy from branch).
 
