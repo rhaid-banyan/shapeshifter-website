@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#5A5B5F"/>
+  <g opacity=".28">
+    <path d="M300 220 L420 180 L420 420 L300 460 Z" fill="#DD336D"/>
+    <path d="M430 330 L550 290 L550 530 L430 570 Z" fill="#DD336D"/>
+    <path d="M1120 380 L1240 340 L1240 580 L1120 620 Z" fill="#DEDED9"/>
+    <path d="M1250 490 L1370 450 L1370 690 L1250 730 Z" fill="#DD336D"/>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="800" y="440" fill="#DEDED9" font-size="44" font-weight="bold" letter-spacing="6">IMAGE PLACEHOLDER</text>
+    <text x="800" y="495" fill="#DEDED9" font-size="24" opacity=".8">stock photo unavailable offline — see swap label</text>
+  </g>
+</svg>

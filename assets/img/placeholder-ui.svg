@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" rx="18" fill="#0d0d0d"/>
+  <rect x="0" y="0" width="1600" height="64" rx="18" fill="#161616"/>
+  <circle cx="42" cy="32" r="9" fill="#DD336D"/><circle cx="74" cy="32" r="9" fill="#5A5B5F"/><circle cx="106" cy="32" r="9" fill="#DEDED9" opacity=".5"/>
+  <rect x="40" y="110" width="360" height="820" rx="14" fill="#161616"/>
+  <rect x="70" y="150" width="220" height="18" rx="9" fill="#5A5B5F"/>
+  <rect x="70" y="200" width="290" height="12" rx="6" fill="#33343a"/>
+  <rect x="70" y="230" width="250" height="12" rx="6" fill="#33343a"/>
+  <rect x="70" y="285" width="300" height="90" rx="10" fill="#0d0d0d" stroke="#DD336D" stroke-width="2"/>
+  <rect x="70" y="395" width="300" height="90" rx="10" fill="#0d0d0d" stroke="#33343a" stroke-width="2"/>
+  <rect x="70" y="505" width="300" height="90" rx="10" fill="#0d0d0d" stroke="#33343a" stroke-width="2"/>
+  <rect x="440" y="110" width="1120" height="560" rx="14" fill="#161616"/>
+  <g opacity=".85">
+    <path d="M520 260 L600 235 L600 400 L520 425 Z" fill="#DD336D"/>
+    <path d="M615 330 L695 305 L695 470 L615 495 Z" fill="#DD336D" opacity=".65"/>
+    <path d="M730 240 L850 215 L850 340 L730 365 Z" fill="#DEDED9" opacity=".5"/>
+    <path d="M880 300 L980 280 L980 480 L880 500 Z" fill="#DD336D" opacity=".5"/>
+    <path d="M1010 250 L1130 230 L1130 380 L1010 400 Z" fill="#DEDED9" opacity=".35"/>
+    <path d="M1160 320 L1300 295 L1300 470 L1160 495 Z" fill="#DD336D" opacity=".7"/>
+    <path d="M1330 250 L1470 230 L1470 430 L1330 450 Z" fill="#DEDED9" opacity=".4"/>
+  </g>
+  <rect x="440" y="700" width="545" height="230" rx="14" fill="#161616"/>
+  <rect x="1015" y="700" width="545" height="230" rx="14" fill="#161616"/>
+  <rect x="480" y="740" width="180" height="14" rx="7" fill="#5A5B5F"/>
+  <rect x="1055" y="740" width="180" height="14" rx="7" fill="#5A5B5F"/>
+  <rect x="480" y="790" width="465" height="10" rx="5" fill="#33343a"/>
+  <rect x="480" y="820" width="420" height="10" rx="5" fill="#33343a"/>
+  <rect x="480" y="850" width="440" height="10" rx="5" fill="#33343a"/>
+  <rect x="1055" y="790" width="465" height="10" rx="5" fill="#33343a"/>
+  <rect x="1055" y="820" width="400" height="10" rx="5" fill="#33343a"/>
+  <text x="800" y="985" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#5A5B5F" text-anchor="middle" letter-spacing="3">PRODUCT UI MOCK — REPLACE WITH REAL SHAPESHIFTER SCREENSHOT</text>
+</svg>
