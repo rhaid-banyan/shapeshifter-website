@@ -7,7 +7,7 @@
 <meta name="description" content="Prophet, Shapeshifter's optimization platform, computes every marker and cut plan for hundreds of styles simultaneously. Cloud-based, REST API-connected, nothing to install.">
 <!-- DRAFT: remove the noindex line below at launch -->
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 </head>
 <body data-page="platform">
 <header class="site-head">
@@ -41,10 +41,9 @@
   <div class="wrap">
     <div class="eyebrow reveal">The Platform</div>
     <h1 class="h-hero reveal d1" style="max-width:900px">Meet Prophet.</h1>
-    <p class="lede reveal d2">Prophet is Shapeshifter&rsquo;s optimization platform. It computes markers and cut plans for hundreds of styles simultaneously &mdash; all the options, all the styles, all the time &mdash; so the plan you cut is the best one that exists, not the first one that worked.</p>
+    <p class="lede reveal d2">Prophet is Shapeshifter&rsquo;s optimization platform. It computes markers and cut plans for hundreds of scenarios simultaneously &mdash; all the options, all the scenarios, all the time &mdash; so the plan you cut is the best one that exists, not the first one that worked.</p>
     <div class="btn-row reveal d3">
-      <a class="btn btn-coral" href="contact.html">Contact Sales</a>
-      <a class="btn btn-ghost" href="#platform-film">See It Run</a>
+      <a class="btn btn-coral" href="contact.html">Get a Demo</a>
     </div>
   </div>
 </section>
@@ -66,12 +65,104 @@
   
   <div class="wrap">
     <div class="eyebrow reveal">How Prophet Works</div>
-    <h2 class="h-sec reveal d1">From upload to cutting floor.</h2>
-    <div class="grid-4 mt-3">
-      <div class="card reveal"><div class="step-no">01 &middot; UPLOAD</div><h4>PO + CAD in</h4><p>Size ratios, quantities and pattern files &mdash; uploaded once.</p></div>
-      <div class="card reveal d1"><div class="step-no">02 &middot; COMPUTE</div><h4>Every marker, every plan</h4><p>Prophet computes thousands of marker and cut-plan combinations simultaneously, powered by its Infinity Engine.</p></div>
-      <div class="card reveal d2"><div class="step-no">03 &middot; COMPARE</div><h4>Ranked by what matters</h4><p>Prophet ranks every plan for lowest fabric use, fastest cutting, or your custom balance of both.</p></div>
-      <div class="card reveal d3"><div class="step-no">04 &middot; CUT</div><h4>To the floor</h4><p>The chosen plan flows to production. If the PO changes, Prophet recomputes instantly.</p></div>
+    <h2 class="h-sec reveal d1">From upload to cutting floor. The Infinity Engine.</h2>
+    <div class="hiw-steps">
+      <svg class="hiw-connector c1" viewBox="0 0 28 16" aria-hidden="true"><path d="M0 8h20m0 0l-6-5m6 5l-6 5" stroke="#DD336D" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="hiw-connector c2" viewBox="0 0 28 16" aria-hidden="true"><path d="M0 8h20m0 0l-6-5m6 5l-6 5" stroke="#DD336D" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hiw-step reveal">
+        <div class="step-top"><div class="step-num">1</div><div class="step-label">Upload</div></div>
+        <h3>Upload the PO</h3>
+        <p>Size ratios, quantities, CAD files and fabric constraints &mdash; uploaded once. That&rsquo;s the whole job.</p>
+        <div class="viz"><svg viewBox="0 0 300 190" aria-label="A purchase order document with size quantities">
+          <rect x="18" y="14" width="150" height="162" rx="8" fill="#FFFFFF" stroke="#DEDED9" stroke-width="2"/>
+          <rect x="18" y="14" width="150" height="34" rx="8" fill="#000000"/>
+          <rect x="18" y="34" width="150" height="14" fill="#000000"/>
+          <text x="34" y="36" font-family="Poppins,sans-serif" font-weight="600" font-size="12" fill="#FFFFFF">PURCHASE ORDER</text>
+          <g class="po-bars" font-family="Inter,sans-serif" font-size="11" fill="#5A5B5F">
+            <text x="34" y="72">S</text><rect x="66" y="63" width="52" height="12" rx="6" fill="#DEDED9"/><text x="126" y="72" fill="#000">260</text>
+            <text x="34" y="94">M</text><rect x="66" y="85" width="64" height="12" rx="6" fill="#DEDED9"/><text x="138" y="94" fill="#000">320</text>
+            <text x="34" y="116">L</text><rect x="66" y="107" width="36" height="12" rx="6" fill="#DEDED9"/><text x="110" y="116" fill="#000">180</text>
+            <text x="34" y="138">XL</text><rect x="66" y="129" width="74" height="12" rx="6" fill="#DD336D" opacity=".85"/><text x="148" y="138" fill="#000">370</text>
+            <text x="34" y="160">2XL</text><rect x="66" y="151" width="88" height="12" rx="6" fill="#DEDED9"/><text x="160" y="160" fill="#000">540</text>
+          </g>
+          <rect x="186" y="44" width="96" height="102" rx="8" fill="#FFFFFF" stroke="#DEDED9" stroke-width="2"/>
+          <g class="march-slow" stroke="#5A5B5F" stroke-width="1.4" fill="none" stroke-dasharray="3 3">
+            <path d="M198 70 q14 -14 32 -8 q16 6 34 -2 l6 18 q-20 10 -38 6 q-18 -4 -34 4 z"/>
+            <path d="M198 108 q20 -10 40 -4 q18 6 32 -4 l4 16 q-18 12 -40 8 q-20 -4 -36 2 z"/>
+          </g>
+          <text x="200" y="136" font-family="Poppins,sans-serif" font-weight="600" font-size="9" letter-spacing="1.5" fill="#5A5B5F">CAD FILES</text>
+        </svg></div>
+      </div>
+      <div class="hiw-step reveal d1">
+        <div class="step-top"><div class="step-num">2</div><div class="step-label">Compute</div></div>
+        <h3>Every option, computed</h3>
+        <p>Prophet computes hundreds of marker and cut-plan scenarios simultaneously, for each order &mdash; the Marker Multiverse.</p>
+        <div class="viz"><svg viewBox="0 0 300 190" aria-label="Efficiency curve rising as all markers are computed">
+          <g>
+            <rect x="16" y="18" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#DEDED9" stroke-width="2"/>
+            <rect x="16" y="62" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#DEDED9" stroke-width="2"/>
+            <rect x="16" y="106" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#DEDED9" stroke-width="2"/>
+            <g class="march-slow" stroke="#5A5B5F" stroke-width="1" fill="none" stroke-dasharray="2.5 2.5" opacity=".8">
+              <path d="M22 30 q12 -8 24 0 q12 8 24 0 q12 -8 24 0"/>
+              <path d="M22 42 q12 8 24 0 q12 -8 24 0 q12 8 24 0"/>
+              <path d="M22 74 q12 -8 24 0 q12 8 24 0 q12 -8 24 0"/>
+              <path d="M22 86 q12 8 24 0 q12 -8 24 0 q12 8 24 0"/>
+              <path d="M22 118 q12 -8 24 0 q12 8 24 0 q12 -8 24 0"/>
+              <path d="M22 130 q12 8 24 0 q12 -8 24 0 q12 8 24 0"/>
+            </g>
+          </g>
+          <text x="16" y="166" font-family="Poppins,sans-serif" font-weight="600" font-size="9" letter-spacing="1.5" fill="#5A5B5F">ALL MARKERS</text>
+          <g>
+            <line x1="132" y1="148" x2="288" y2="148" stroke="#DEDED9" stroke-width="2"/>
+            <line x1="132" y1="148" x2="132" y2="16" stroke="#DEDED9" stroke-width="2"/>
+            <path class="march-line" d="M138 132 C 170 100, 230 92, 258 70 S 282 34, 284 24" fill="none" stroke="#DD336D" stroke-width="2" stroke-dasharray="4 4"/>
+            <circle class="draw-dot" cx="148" cy="121" r="4.5" fill="#DD336D"/>
+            <circle class="draw-dot" cx="180" cy="102" r="4.5" fill="#DD336D"/>
+            <circle class="draw-dot" cx="212" cy="93" r="4.5" fill="#DD336D"/>
+            <circle class="draw-dot" cx="242" cy="82" r="4.5" fill="#DD336D"/>
+            <circle class="draw-dot" cx="266" cy="59" r="4.5" fill="#DD336D"/>
+            <circle class="draw-dot" cx="283" cy="28" r="4.5" fill="#DD336D"/>
+            <text x="140" y="176" font-family="Inter,sans-serif" font-size="10" fill="#5A5B5F">marker efficiency, known upfront</text>
+          </g>
+        </svg></div>
+      </div>
+      <div class="hiw-step reveal d2">
+        <div class="step-top"><div class="step-num">3</div><div class="step-label">Choose</div></div>
+        <h3>Choose what wins</h3>
+        <p>Direct Prophet to what matters today &mdash; lowest cost, least fabric, or fastest &mdash; and the chosen plan flows to production. Something changes? Prophet recomputes.</p>
+        <div class="viz"><svg viewBox="0 0 300 190" aria-label="Distribution of cut plans with the best plan highlighted">
+          <g>
+            <g fill="#DEDED9">
+              <rect x="26"  y="128" width="16" height="16" rx="3"/>
+              <rect x="48"  y="128" width="16" height="16" rx="3"/><rect x="48" y="106" width="16" height="16" rx="3"/>
+              <rect x="70"  y="128" width="16" height="16" rx="3"/><rect x="70" y="106" width="16" height="16" rx="3"/><rect x="70" y="84" width="16" height="16" rx="3"/>
+              <rect x="92"  y="128" width="16" height="16" rx="3"/><rect x="92" y="106" width="16" height="16" rx="3"/><rect x="92" y="84" width="16" height="16" rx="3"/><rect x="92" y="62" width="16" height="16" rx="3"/>
+              <rect x="114" y="128" width="16" height="16" rx="3"/><rect x="114" y="106" width="16" height="16" rx="3"/><rect x="114" y="84" width="16" height="16" rx="3"/><rect x="114" y="62" width="16" height="16" rx="3"/><rect x="114" y="40" width="16" height="16" rx="3"/>
+              <rect x="136" y="128" width="16" height="16" rx="3"/><rect x="136" y="106" width="16" height="16" rx="3"/><rect x="136" y="84" width="16" height="16" rx="3"/><rect x="136" y="62" width="16" height="16" rx="3"/><rect x="136" y="40" width="16" height="16" rx="3"/><rect x="136" y="18" width="16" height="16" rx="3"/>
+              <rect x="158" y="128" width="16" height="16" rx="3"/><rect x="158" y="106" width="16" height="16" rx="3"/><rect x="158" y="84" width="16" height="16" rx="3"/><rect x="158" y="62" width="16" height="16" rx="3"/><rect x="158" y="40" width="16" height="16" rx="3"/>
+              <rect x="180" y="128" width="16" height="16" rx="3"/><rect x="180" y="106" width="16" height="16" rx="3"/><rect x="180" y="84" width="16" height="16" rx="3"/><rect x="180" y="62" width="16" height="16" rx="3"/>
+              <rect x="202" y="106" width="16" height="16" rx="3"/><rect x="202" y="84" width="16" height="16" rx="3"/>
+              <rect x="224" y="128" width="16" height="16" rx="3"/><rect x="224" y="106" width="16" height="16" rx="3"/>
+              <rect x="246" y="128" width="16" height="16" rx="3"/>
+            </g>
+            <rect class="win-pulse" x="202" y="128" width="16" height="16" rx="3" fill="#DD336D"/>
+            <g>
+              <line class="draw-callout" pathLength="1" x1="210" y1="126" x2="238" y2="98" stroke="#DD336D" stroke-width="1.5"/>
+              <rect x="212" y="72" width="80" height="26" rx="6" fill="#000000"/>
+              <text x="222" y="83" font-family="Poppins,sans-serif" font-weight="600" font-size="8.5" fill="#FFFFFF">BEST PLAN</text>
+              <text x="222" y="93" font-family="Inter,sans-serif" font-size="8" fill="#DEDED9">lowest fabric use</text>
+            </g>
+            <line x1="20" y1="150" x2="286" y2="150" stroke="#DEDED9" stroke-width="2"/>
+            <text x="20" y="168" font-family="Inter,sans-serif" font-size="10" fill="#5A5B5F">more fabric</text>
+            <text x="286" y="168" font-family="Inter,sans-serif" font-size="10" fill="#5A5B5F" text-anchor="end">less fabric &rarr;</text>
+          </g>
+        </svg></div>
+      </div>
+    </div>
+    <div class="hiw-results reveal d2">
+      <div><div class="big"><em>1&ndash;3%</em> less fabric</div><div class="small">Lower cost and less waste on every order.</div></div>
+      <div><div class="big"><em>10&ndash;15%</em> faster cutting</div><div class="small">More throughput from the machines you already own.</div></div>
+      <div><div class="big"><em>100%</em> automated</div><div class="small">Markers and cut plans generated without the CAD-room queue.</div></div>
     </div>
   </div>
 </section>
@@ -80,9 +171,9 @@
   <div class="wrap"><div class="shape-row" aria-hidden="true"><i class="sq" data-rs="0.4"></i><i class="tri gray" data-rs="-0.55"></i><i class="hex" data-rs="0.3"></i><i class="sq solid gray" data-rs="-0.34"></i><i class="tri" data-rs="0.5"></i><i class="hex gray" data-rs="-0.4"></i><i class="sq solid" data-rs="0.45"></i></div>
     <div class="split">
       <div>
-        <div class="eyebrow reveal">Less effort. No guesswork.</div>
+        <div class="eyebrow reveal">Less effort with no guesswork.</div>
         <h2 class="h-sec reveal d1">Traditional systems make one cut plan. Prophet makes them all.</h2>
-        <p class="body-copy reveal d2 mt-2">A CAD operator produces the single plan there&rsquo;s time for. Prophet&rsquo;s cloud computes the full space of options for every style &mdash; eliminating manual estimation and uncertainty in costing and cutting. That&rsquo;s the difference between digitizing a manual process and eliminating it.</p>
+        <p class="body-copy reveal d2 mt-2">A planner produces the single plan there&rsquo;s time for. Prophet&rsquo;s cloud computes all the scenarios for every style &mdash; eliminating the uncertainty in buying and cutting. That&rsquo;s the difference between digitizing a manual process and eliminating it.</p>
       </div>
       <div class="reveal d2"><figure class="figure ui"><img src="assets/img/placeholder-ui.svg" alt="Shapeshifter product interface placeholder"><figcaption class="swap-tag bespoke">BESPOKE NEEDED: marker layout + ranked cut-plan table</figcaption></figure></div>
     </div>
@@ -91,29 +182,29 @@
 
 <section class="sec-light pad">
   <div class="wrap">
-    <div class="eyebrow reveal">Customised Tech</div>
-    <h2 class="h-sec reveal d1">Customisation = Results.</h2>
-    <p class="lede reveal d2 mt-1">Most software providers provide software, end of story. Shapeshifter does things differently &mdash; the added value we create together comes from configuring Prophet around your operation.</p>
+    <div class="eyebrow reveal">Customized Tech</div>
+    <h2 class="h-sec reveal d1">One size does not fit all.</h2>
+    <p class="lede reveal d2 mt-1">Most software providers provide software, end of story. Shapeshifter does things differently &mdash; the added value we deliver comes from customizing and configuring Prophet around your business and its processes.</p>
     <div class="grid-3 mt-3">
       <div class="card reveal"><h4>Effective Automation</h4><p>Automation configured to your fabrics, your styles and your workflow &mdash; so the machine does the work your team shouldn&rsquo;t.</p></div>
-      <div class="card reveal d1"><h4>Simplified User Experience</h4><p>A UI shaped around how your planners and cutters actually work, not a generic out-of-the-box screen.</p></div>
-      <div class="card reveal d2"><h4>Smooth Transition, Easy Onboarding</h4><p>We configure, integrate and train alongside your team, so going live is a handover &mdash; not a disruption.</p></div>
+      <div class="card reveal d1"><h4>Simplified User Experience</h4><p>The best UI is one that doesn&rsquo;t exist &mdash; that&rsquo;s what real automation is all about.</p></div>
+      <div class="card reveal d2"><h4>Easy Onboarding</h4><p>We configure, integrate and train alongside your team, so going live is a handover &mdash; not a disruption.</p></div>
     </div>
   </div>
 </section>
 
 <section class="sec-dark pad">
   
-  <div class="wrap">
+  <div class="wrap"><div class="shape-row" aria-hidden="true"><i class="sq" data-rs="0.4"></i><i class="tri gray" data-rs="-0.55"></i><i class="hex" data-rs="0.3"></i><i class="sq solid gray" data-rs="-0.34"></i><i class="tri" data-rs="0.5"></i><i class="hex gray" data-rs="-0.4"></i><i class="sq solid" data-rs="0.45"></i></div>
     <div class="eyebrow reveal">Powerful Features</div>
-    <h2 class="h-sec reveal d1">Prophet is built to compute what humans can&rsquo;t.</h2>
+    <h2 class="h-sec reveal d1">Prophet is built to do what humans can&rsquo;t.</h2>
     <div class="grid-3 mt-3">
       <div class="tile reveal"><div class="glyph"></div><h4>Cloud-Based</h4><p>Prophet runs entirely in the cloud &mdash; no on-premise servers, no workstation licences, no capacity ceiling.</p></div>
-      <div class="tile reveal d1"><div class="glyph"></div><h4>Hyper-Automation</h4><p>Markers and cut plans generated end-to-end with zero manual intervention.</p></div>
+      <div class="tile reveal d1"><div class="glyph"></div><h4>Hyper-Automation</h4><p>Markers and cut plans generated end-to-end with no manual intervention.</p></div>
       <div class="tile reveal d2"><div class="glyph"></div><h4>Infinity Engine</h4><p>Prophet&rsquo;s proprietary optimization core: metaheuristic and genetic algorithms working the geometry of every layout.</p></div>
       <div class="tile reveal"><div class="glyph"></div><h4>Parallel Processing</h4><p>Hundreds of styles computed at once. The queue behind the CAD workstation, retired.</p></div>
       <div class="tile reveal d1"><div class="glyph"></div><h4>Unlimited Usage</h4><p>Run every PO, every restyle, every what-if through Prophet. No per-marker fees, no rationing the engine.</p></div>
-      <div class="tile reveal d2"><div class="glyph"></div><h4>Connectivity</h4><p>REST APIs connect Prophet to your ERP and CAD/CAM environment for a seamless flow of data.</p></div>
+      <div class="tile reveal d2"><div class="glyph"></div><h4>Connectivity</h4><p>A REST API connects Prophet to your ERP for seamless data flow &mdash; while native CAD formats mean no pattern interpretation or misrepresentation.</p></div>
     </div>
   </div>
 </section>
@@ -124,8 +215,8 @@
       <figure class="figure "><img src="https://images.unsplash.com/photo-1636986056375-184676d8ca14?auto=format&fit=crop&w=1600&q=70" alt="Rows of textile machines and thread spools in a modern factory" loading="lazy" onerror="this.onerror=null;this.src='assets/img/placeholder-photo.svg'"><figcaption class="swap-tag">STOCK · swap: modern production environment</figcaption></figure>
       <div>
         <div class="eyebrow reveal">For Your IT Team</div>
-        <h2 class="h-sec reveal d1">Cloud-native. API-connected. Nothing to install.</h2>
-        <p class="body-copy reveal d2 mt-2">Secure cloud architecture means there is no hardware to buy and no software to maintain. REST API integration moves orders, markers and plans between Prophet and your ERP without re-keying, and Prophet works alongside your existing CAD/CAM tools.</p>
+        <h2 class="h-sec reveal d1">Cloud native. API connected. Nothing to install.</h2>
+        <p class="body-copy reveal d2 mt-2">Secure cloud architecture means there is no hardware to buy and no software to maintain. REST API integration moves orders, markers and plans between Prophet and your ERP seamlessly, and Prophet works in your existing CAD formats.</p>
       </div>
     </div>
   </div>
@@ -133,12 +224,11 @@
 
 <section class="cta-band pad">
   
-  <div class="wrap">
-    <h2 class="h-sec reveal">Twenty minutes of Prophet on your own styles.</h2>
-    <p class="lede reveal d1">The fastest way to evaluate Prophet is to watch it run on your patterns, not ours.</p>
+  <div class="wrap"><div class="shape-row" aria-hidden="true"><i class="sq" data-rs="0.4"></i><i class="tri gray" data-rs="-0.55"></i><i class="hex" data-rs="0.3"></i><i class="sq solid gray" data-rs="-0.34"></i><i class="tri" data-rs="0.5"></i><i class="hex gray" data-rs="-0.4"></i><i class="sq solid" data-rs="0.45"></i></div>
+    <h2 class="h-sec reveal">Getting started with Shapeshifter.</h2>
+    <p class="lede reveal d1">The fastest way to evaluate Prophet is to use our AI upload assistant for automated comparisons.</p>
     <div class="btn-row reveal d2">
       <a class="btn btn-coral" href="contact.html">Contact Sales</a>
-      <a class="btn btn-ghost" href="customers.html">Meet Our Customers</a>
     </div>
   </div>
 </section>
@@ -149,7 +239,7 @@
     <div class="foot-grid">
       <div>
         <a class="logo" href="index.html"><img src="assets/img/logo-black.png" alt="Shapeshifter"></a>
-        <p class="tag">Cloud-based fabric &amp; resource hyper-automation for global fashion supply chains. Less waste, more production &mdash; computed, not estimated.</p>
+        <p class="tag">Cloud-based fabric &amp; resource hyper-automation for global fashion supply chains. Less waste, more profit &mdash; computed, not estimated.</p>
       </div>
       <div>
         <h5>Product</h5>

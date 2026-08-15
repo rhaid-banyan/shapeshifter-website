@@ -88,6 +88,35 @@
     rUpdate();
   }
 
+
+  /* Count-up metrics (Gemini-style) */
+  var counts = document.querySelectorAll('.count');
+  if (counts.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) { return; }
+        cio.unobserve(e.target);
+        var el = e.target;
+        var to = parseFloat(el.getAttribute('data-to') || '0');
+        var pre = el.getAttribute('data-prefix') || '';
+        var suf = el.getAttribute('data-suffix') || '';
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          el.innerHTML = pre + to + suf; return;
+        }
+        var t0 = null, dur = 1400;
+        var step = function (ts) {
+          if (!t0) { t0 = ts; }
+          var p = Math.min(1, (ts - t0) / dur);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.innerHTML = pre + Math.round(to * ease) + suf;
+          if (p < 1) { window.requestAnimationFrame(step); }
+        };
+        window.requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    counts.forEach(function (c) { cio.observe(c); });
+  }
+
   /* Current year */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
