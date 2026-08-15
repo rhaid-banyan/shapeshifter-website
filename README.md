@@ -6,7 +6,7 @@
 > line from all 8 HTML pages at launch** (search the repo for `noindex`) — the
 > site is invisible to Google and AI assistants until you do.
 
-Self-contained static mockup of the redesigned shapeshifter.com.
+Self-contained static mockup of the redesigned shapeshifter.com, modeled on geminishale.com.
 No build step, no dependencies — open `index.html` in a browser, or push this folder to GitHub
 and serve with GitHub Pages (Settings → Pages → deploy from branch).
 
@@ -51,6 +51,7 @@ an on-image label:
 
 - **"STOCK · swap:"** (dark pill) — stock is acceptable short-term; swap when bespoke exists.
 - **"BESPOKE NEEDED:"** (coral pill) — must be replaced before launch:
+  - Homepage process diagram → drop four images at `assets/img/process/step-1.jpg` … `step-4.jpg` (4:3 crop works best; any size, they're auto-fitted)
   - All product-UI mocks (`assets/img/placeholder-ui.svg`) → real Shapeshifter screenshots (Home, Platform)
   - Company page → Hamish / Auckland team photography
   - Customers page case-study cards → real customer imagery (with permission)
@@ -61,12 +62,15 @@ Remove the label pills at launch by deleting the `<figcaption class="swap-tag">`
 
 **Verify (canonical claims sheet — one source per number):**
 - 1–3% less fabric · 10–15% faster cutting · 100% automation
-- 55+ customers · NPS 83 · "20+ years"
+- "Over 1 billion garments optimized" and "550+ smart factories" (client-supplied Aug 2026 — NOT yet substantiated)
+- NPS 83 · "20+ years"
 - Pilot pricing language ("fraction of the full subscription")
 - FAQ answers (implementation timeline, integration claims)
 
 **Permissions (written customer consent):**
-- All three testimonial quotes (currently anonymized to role + descriptor)
+- Hirdaramani quote (named: Rakhil Hirdaramani) — supplied by Shapeshifter in their Aug 2026 edit doc; treat as client-cleared
+- Remaining anonymized quotes: Sintex, MAS Active, Kiabi, Kontoor (Customers page) + VF (How We Work) — Kiabi & Kontoor quotes sourced from the IcebergIQ due-diligence interviews (Mar 2023), so customer consent is REQUIRED before launch
+- Logo belts (Customers page): factories = actual customers; brands = what they manufacture for, with a no-affiliation disclaimer line. Logos processed to transparent PNG/SVG in assets/img/logos/. Ryan approved usage basis (public LinkedIn collaborations) Aug 2026.
 - Customer logo wall on `customers.html` (placeholder chips until cleared)
 - Any customer-identifiable photography
 
@@ -76,6 +80,10 @@ Remove the label pills at launch by deleting the `<figcaption class="swap-tag">`
 - Brand-name references on Customers page ("factories producing for…") — phrase so no
   affiliation is implied
 - Comparison/alternatives pages (phase 2) — Legal before drafting
+
+**Open items from Shapeshifter's Aug 2026 copy review:**
+- Platform CTA references the "AI upload assistant" — need its URL to link the button (currently goes to Contact)
+- Looping hero video clip idea (1:36–1:45 of the older Prophet film) — parked; needs the MP4 source
 
 **Technical at production build:**
 - REMOVE the `<meta name="robots" content="noindex, nofollow">` draft tag from every page (added so the draft stays out of search engines while shared via unlisted URL)
