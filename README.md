@@ -1,14 +1,14 @@
-# Shapeshifter Website — Full Mockup
+# Shapeshifter Website
 
-> ⚠️ **BEFORE GOING LIVE:** every page currently contains
-> `<meta name="robots" content="noindex, nofollow">` so the draft stays out of
-> search engines and AI crawlers while shared via unlisted URL. **Remove that
-> line from all 8 HTML pages at launch** (search the repo for `noindex`) — the
-> site is invisible to Google and AI assistants until you do.
+Static site for shapeshifter.com, modeled on geminishale.com. No build step —
+open `index.html` in a browser (or `python3 -m http.server` for the video to play),
+push to GitHub for Pages hosting.
 
-Self-contained static mockup of the redesigned shapeshifter.com, modeled on geminishale.com.
-No build step, no dependencies — open `index.html` in a browser, or push this folder to GitHub
-and serve with GitHub Pages (Settings → Pages → deploy from branch).
+**Launch prep completed 2026-08-20:** noindex tags REMOVED (site is now indexable
+once served), robots.txt + sitemap.xml added (AI retrieval/training bots explicitly
+allowed), Organization + WebSite JSON-LD on every page, FAQPage schema on Resources,
+canonical + Open Graph tags on every page, `/for-ai/overview/` canonical-facts page
+linked from the footer, and all remaining image swap-labels stripped.
 
 ## Pages
 
@@ -19,92 +19,65 @@ and serve with GitHub Pages (Settings → Pages → deploy from branch).
 | `solutions.html` | Solutions |
 | `how-we-work.html` | How We Work |
 | `customers.html` | Customers |
-| `resources.html` | Resources (anchors: `#faq`, `#case-studies`, `#news`, `#blog`, `#nerd-corner`) |
+| `resources.html` | Resources (anchors: `#faq`, `#case-studies`, `#nerd-corner`) |
 | `company.html` | Company |
 | `contact.html` | Contact Sales (header CTA + all bottom-of-page CTAs) |
+| `for-ai/overview/` | Canonical facts for AI assistants (footer link, not in nav) |
 
-Design system: black `#000000` / accent `#DD336D` / gray `#5A5B5F` / stone `#DEDED9`.
-Logo PNGs in `assets/img/` have the mark recolored to `#DD336D` (wordmark untouched).
-Headings use Poppins SemiBold, self-hosted in `assets/fonts/` (no external font CDN).
-Header is fixed and always dark (white-text logo); footer is light (black-text logo).
-Sections alternate dark/light per page. Scroll-triggered fade-ins, image hover motion, and
-rows of small rotating shapes (squares / triangles / hexagons) between sections are in
-`assets/js/main.js` — rotation speed is set per-shape via `data-rs` attributes in the HTML.
+Plus `robots.txt` and `sitemap.xml` at the root (canonical domain baked in:
+`https://www.shapeshifter.com`). If the site launches on a different domain,
+update the URLs in robots.txt, sitemap.xml, the JSON-LD blocks, and the
+canonical/og tags in each page head.
 
-Naming: Shapeshifter is the company, **Prophet** is the product (Platform page), and the
-Infinity Engine is Prophet's optimization core — keep that hierarchy in any new copy.
+## Design system
 
-## Video
+Black `#000000` / accent `#DD336D` / gray `#5A5B5F` / stone `#DEDED9`.
+Poppins SemiBold headings, self-hosted in `assets/fonts/`. Header fixed and dark
+(white-text logo); footer light (black-text logo); sections alternate dark/light.
+Animations: scroll fade-ins, rotating shape rows atop black sections, logo conveyor
+belts (Customers), illustrated 3-step diagram with line animations (Home + Platform),
+count-up numbers (Home value cards, Customers stats). CSS is versioned in the
+`<link>` tags (`style.css?v=4`) — bump the number on every meaningful CSS change.
 
-The film is embedded from YouTube (`youtube.com/embed/EPqxwD7VMgI`) on Home and Platform,
-with a referrer policy set and a "Watch on YouTube" fallback link. Note: opening pages via
-`file://` can still show a player error (YouTube blocks embeds with no referrer) — serve the
-folder over http(s) (GitHub Pages, or `python3 -m http.server`) and it plays. Keep YouTube
-for production — free adaptive streaming; GitHub Pages can't stream video files well.
+Naming: Shapeshifter = company · **Prophet** = product · Infinity Engine = Prophet's
+optimization core.
 
-## Images — swap list
+## STILL OPEN BEFORE / SHORTLY AFTER GO-LIVE
 
-The homepage hero (`assets/img/hero-factory.jpg`) is a licensed stock photo stored locally
-(web-optimized ~170KB). All other photos hotlink from Unsplash (free license) with an automatic
-local fallback (`assets/img/placeholder-photo.svg`) if offline. Every swappable image carries
-an on-image label:
+**Permissions (site is now indexable — these are live claims):**
+- Kiabi & Kontoor quotes (Customers page) came from confidential IcebergIQ
+  due-diligence interviews (Mar 2023) — customer consent still needed
+- VF quote (How We Work) — same source, same requirement
+- Brand + factory logo belts: usage based on public LinkedIn collaborations
+  (Ryan approved Aug 2026); no-affiliation disclaimer is on the page
+- Hirdaramani quote + photo: supplied by Shapeshifter — treated as cleared
 
-- **"STOCK · swap:"** (dark pill) — stock is acceptable short-term; swap when bespoke exists.
-- **"BESPOKE NEEDED:"** (coral pill) — must be replaced before launch:
-  - Homepage process diagram → drop four images at `assets/img/process/step-1.jpg` … `step-4.jpg` (4:3 crop works best; any size, they're auto-fitted)
-  - All product-UI mocks (`assets/img/placeholder-ui.svg`) → real Shapeshifter screenshots (Home, Platform)
-  - Company page → Hamish / Auckland team photography
-  - Customers page case-study cards → real customer imagery (with permission)
+**Claims sheet (verify with Shapeshifter):**
+- "Over 1 billion garments optimized" and "550+ smart factories" (client-supplied,
+  not yet substantiated) — note hero stat currently shows 55+ manufacturers
+- 1–3% fabric / 10–15% cutting / 100% automation / NPS 83 / "20+ years"
 
-Remove the label pills at launch by deleting the `<figcaption class="swap-tag">` elements.
-
-## Pre-launch checklist (do not skip)
-
-**Verify (canonical claims sheet — one source per number):**
-- 1–3% less fabric · 10–15% faster cutting · 100% automation
-- "Over 1 billion garments optimized" and "550+ smart factories" (client-supplied Aug 2026 — NOT yet substantiated)
-- NPS 83 · "20+ years"
-- Pilot pricing language ("fraction of the full subscription")
-- FAQ answers (implementation timeline, integration claims)
-
-**Permissions (written customer consent):**
-- Hirdaramani quote (named: Rakhil Hirdaramani) — supplied by Shapeshifter in their Aug 2026 edit doc; treat as client-cleared
-- Remaining anonymized quotes: Sintex, MAS Active, Kiabi, Kontoor (Customers page) + VF (How We Work) — Kiabi & Kontoor quotes sourced from the IcebergIQ due-diligence interviews (Mar 2023), so customer consent is REQUIRED before launch
-- Logo belts (Customers page): factories = actual customers; brands = what they manufacture for, with a no-affiliation disclaimer line. Logos processed to transparent PNG/SVG in assets/img/logos/. Ryan approved usage basis (public LinkedIn collaborations) Aug 2026.
-- Customer logo wall on `customers.html` (placeholder chips until cleared)
-- Any customer-identifiable photography
-
-**Legal review (per Banyan Comparative Marketing Guidelines, Jul 2026):**
-- Any future mention of competitor names (Gerber AccuMark etc.) — currently the site
-  says only "your existing CAD/CAM environment"
-- Brand-name references on Customers page ("factories producing for…") — phrase so no
-  affiliation is implied
-- Comparison/alternatives pages (phase 2) — Legal before drafting
-
-**Open items from Shapeshifter's Aug 2026 copy review:**
-- Platform CTA references the "AI upload assistant" — need its URL to link the button (currently goes to Contact)
-- Looping hero video clip idea (1:36–1:45 of the older Prophet film) — parked; needs the MP4 source
-
-**Technical at production build:**
-- REMOVE the `<meta name="robots" content="noindex, nofollow">` draft tag from every page (added so the draft stays out of search engines while shared via unlisted URL)
-- Wire the contact form to CRM/form service (`contact.html` — currently a mock alert)
-- robots.txt (allow AI retrieval/live-fetch bots + Sitemap line), sitemap.xml
-- Organization + WebSite JSON-LD on all pages; FAQPage schema on `resources.html#faq`
-- `/for-ai/overview` canonical-facts page, linked from footer
-- Real Privacy/Terms pages (footer links are stubs)
-- LinkedIn URL — currently points to linkedin.com/company/shapeshiftersocial; confirm handle
-- Homepage hero photo: `assets/img/hero-factory.jpg` (supervisor with tablet on sewing floor) — CONFIRM the stock license covers web use before launch.
+**Functional:**
+- Contact form is still a mock (shows an alert) — wire to Formspree/CRM when chosen
+- Privacy & Terms footer links are stubs (`#`) — Legal to supply pages
+- Platform CTA mentions the "AI upload assistant" — link its URL when live
+- LinkedIn handle (`shapeshiftersocial`) — confirm; it's in the footer and the JSON-LD sameAs
+- Hero photo license (`assets/img/hero-factory.jpg`) — confirm web use
+- Case-study cards (Customers) use temporary Unsplash stock; "coming soon" copy —
+  replace when real case studies exist
+- Video loop idea (1:36–1:45 of older Prophet film) — parked, needs MP4
 
 ## Structure
 
 ```
 shapeshifter-site/
-├── index.html … contact.html   (8 pages)
-├── website-readme.md            (this file)
-├── assets/
-│   ├── css/style.css           (design system)
-│   ├── js/main.js              (reveal, parallax shapes, accordion, nav)
-│   ├── fonts/                  (Poppins 400/600 woff2, self-hosted)
-│   └── img/                    (logos + placeholder SVGs)
-└── README.md
+├── index.html … contact.html    (8 pages)
+├── for-ai/overview/index.html   (AI canonical-facts page)
+├── robots.txt · sitemap.xml
+├── README.md
+└── assets/
+    ├── css/style.css            (design system)
+    ├── js/main.js               (reveal, shapes, belts, count-ups, accordion, nav)
+    ├── fonts/                   (Poppins 400/600 woff2, self-hosted)
+    └── img/                     (logos, stock photos, placeholder SVGs)
 ```
