@@ -53,7 +53,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body data-page="home">
 <header class="site-head">
@@ -101,9 +101,13 @@
     
 <div class="film-tag reveal"><i></i>The film &middot; Shapeshifter in two minutes</div>
 <div class="film-frame reveal d1">
-  <iframe src="https://www.youtube.com/embed/EPqxwD7VMgI?rel=0" title="Shapeshifter film"
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+  <div id="video-frame" data-video-id="EPqxwD7VMgI">
+    <img class="video-thumb" src="https://i.ytimg.com/vi/EPqxwD7VMgI/maxresdefault.jpg" alt="Shapeshifter film preview" loading="lazy">
+    <button id="video-play" class="video-play-btn" aria-label="Play the Shapeshifter film">
+      <span class="play-icon">&#9654;</span>
+      <span class="play-note">This video uses cookies to play. Click to consent &amp; watch</span>
+    </button>
+  </div>
 </div>
 <p class="film-fallback reveal d2"><a href="https://www.youtube.com/watch?v=EPqxwD7VMgI" target="_blank" rel="noopener">Trouble playing here? Watch on YouTube &rarr;</a></p>
   </div>

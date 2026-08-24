@@ -353,3 +353,31 @@ section{position:relative;overflow:hidden}
   .po-bars rect{transform:scaleX(1);transition:none}
   .draw-callout{stroke-dashoffset:0;transition:none}
 }
+
+/* ---------- cookie consent (CCPA/CPRA + opt-in gate) — site-wide ---------- */
+#consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;padding:16px 20px;background:var(--black);color:var(--stone);font-family:var(--body);font-size:14px;border-top:1px solid rgba(255,255,255,.12)}
+#consent-banner button{padding:8px 16px;border:0;border-radius:8px;font-size:14px;font-family:var(--head);font-weight:600;cursor:pointer}
+#consent-accept{background:var(--coral);color:#fff}
+#consent-accept:hover{background:var(--coral-deep)}
+#consent-decline{background:transparent;color:var(--stone);border:1px solid rgba(255,255,255,.3)}
+#privacy-choices{position:fixed;left:16px;bottom:16px;z-index:9998;font-family:var(--body);font-size:12px;color:var(--gray);text-decoration:underline;cursor:pointer;background:#fff;border:0;padding:4px 8px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.12);display:none}
+
+/* Video: preview thumbnail + play/consent overlay until accepted (index, platform) */
+#video-frame{position:absolute;inset:0}
+#video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-play-btn{position:absolute;inset:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,.4);border:0;cursor:pointer;color:#fff;font-family:var(--body)}
+.video-play-btn .play-icon{width:64px;height:64px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:22px;padding-left:4px;transition:background .2s,transform .2s}
+.video-play-btn:hover .play-icon{background:var(--coral-deep);transform:scale(1.06)}
+.video-play-btn .play-note{font-size:13px;background:rgba(0,0,0,.55);padding:7px 16px;border-radius:20px}
+
+/* Contact form: grayed-out/disabled placeholder until consent is given (contact page) */
+.hs-form-frame{position:relative;min-height:200px}
+.hs-form-frame.locked{filter:grayscale(1);opacity:.5;pointer-events:none}
+#form-placeholder{font-family:var(--body)}
+#form-placeholder .fake-note{text-align:center;font-size:13px;color:var(--gray);margin-bottom:20px}
+#form-placeholder .fake-label{height:12px;width:90px;border-radius:4px;background:var(--stone);margin-bottom:6px}
+#form-placeholder .fake-field{height:38px;border-radius:6px;background:#ececea;margin:0 0 18px}
+#form-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:200px;font-family:var(--body);color:var(--gray);font-size:14px}
+#form-loading .spinner{width:30px;height:30px;border-radius:50%;border:3px solid var(--stone);border-top-color:var(--coral);animation:form-spin .8s linear infinite}
+@keyframes form-spin{to{transform:rotate(360deg)}}

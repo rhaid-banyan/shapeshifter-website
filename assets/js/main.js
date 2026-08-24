@@ -129,4 +129,145 @@
       if (a.getAttribute('data-nav') === page) { a.classList.add('active'); }
     });
   }
+
+  /* ---------- cookie consent (CCPA/CPRA + GDPR-style opt-in gate) ----------
+     Site-wide: creates the banner on every page, then gates whatever
+     consent-relevant content exists on THAT page (video, contact form). */
+  var banner = document.createElement('div');
+  banner.id = 'consent-banner';
+  var hasVideo = !!document.getElementById('video-frame');
+  var hasForm = !!document.querySelector('.hs-form-frame');
+  var bannerText = hasVideo
+    ? 'This site uses cookies for basic analytics and to play embedded YouTube video. We do not sell or share your personal information. Do you consent?'
+    : 'This site uses cookies for basic analytics. We do not sell or share your personal information. Do you consent?';
+  banner.innerHTML =
+    '<span>' + bannerText + '</span>' +
+    '<button id="consent-accept">Accept</button>' +
+    '<button id="consent-decline">Decline / Do Not Sell or Share My Info</button>';
+  document.body.appendChild(banner);
+
+  var privacyLink = document.createElement('button');
+  privacyLink.id = 'privacy-choices';
+  privacyLink.textContent = 'Privacy Choices';
+  document.body.appendChild(privacyLink);
+
+  var stored = localStorage.getItem('ss-consent');
+
+  function showConsentBanner() {
+    banner.style.display = 'flex';
+    privacyLink.style.display = 'none';
+  }
+
+  function hideConsentBanner() {
+    banner.style.display = 'none';
+    privacyLink.style.display = 'block';
+  }
+
+  if (stored) {
+    hideConsentBanner();
+    if (stored === 'accepted') { loadAnalytics(); unlockContactForm(); }
+  } else {
+    privacyLink.style.display = 'none';
+  }
+
+  function acceptConsent() {
+    localStorage.setItem('ss-consent', 'accepted');
+    hideConsentBanner();
+    loadAnalytics();
+  }
+
+  document.getElementById('consent-accept').addEventListener('click', function () {
+    acceptConsent();
+    unlockContactForm();
+  });
+
+  document.getElementById('consent-decline').addEventListener('click', function () {
+    localStorage.setItem('ss-consent', 'declined');
+    hideConsentBanner();
+  });
+
+  // Lets a visitor reopen the banner anytime to change their choice
+  // (the persistent opt-out mechanism CCPA/CPRA requires).
+  privacyLink.addEventListener('click', showConsentBanner);
+
+  function loadAnalytics() {
+    // Google tag (gtag.js) — GA4. Only loads after consent.
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z52FWM1238';
+    document.head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-Z52FWM1238');
+  }
+
+  /* ---------- video consent gate (index, platform) ---------- */
+  var videoFrame = document.getElementById('video-frame');
+  var videoPlayBtn = document.getElementById('video-play');
+  var videoUnlocked = false;
+
+  function playVideo() {
+    // Only load/play the YouTube iframe once consent is given — guarded
+    // to run once so a later re-consent can't reset playback.
+    if (videoUnlocked || !videoFrame) { return; }
+    videoUnlocked = true;
+
+    var videoId = videoFrame.getAttribute('data-video-id');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1';
+    iframe.title = 'Shapeshifter film';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+    videoFrame.innerHTML = '';
+    videoFrame.appendChild(iframe);
+  }
+
+  if (videoPlayBtn) {
+    videoPlayBtn.addEventListener('click', function () {
+      // The button itself says "Click to consent & watch" — so clicking
+      // it IS giving consent, same as clicking Accept in the banner below.
+      if (localStorage.getItem('ss-consent') !== 'accepted') {
+        acceptConsent();
+      }
+      playVideo();
+    });
+  }
+
+  /* ---------- contact form consent gate (contact page) ---------- */
+  var formUnlocked = false;
+
+  function unlockContactForm() {
+    // Contact form is gated behind consent — grayed out/disabled (via the
+    // "locked" class + fake placeholder fields) until accepted. Guarded to
+    // run once: re-running would wipe the already-loaded HubSpot iframe
+    // (e.g. if the visitor reopens the banner via "Privacy Choices" and
+    // clicks Accept again) and it won't reliably re-render into a
+    // container it already initialized.
+    var formFrame = document.querySelector('.hs-form-frame');
+    if (formUnlocked || !formFrame) { return; }
+    formUnlocked = true;
+
+    formFrame.classList.remove('locked');
+
+    // HubSpot's embed script takes a variable 1-4s to inject the actual
+    // form iframe, so show a spinner in the meantime instead of a blank box.
+    formFrame.innerHTML = '<div id="form-loading"><div class="spinner"></div><p>Loading form&hellip;</p></div>';
+
+    var observer = new MutationObserver(function () {
+      if (formFrame.querySelector('iframe')) {
+        var loading = document.getElementById('form-loading');
+        if (loading) { loading.remove(); }
+        observer.disconnect();
+      }
+    });
+    observer.observe(formFrame, { childList: true, subtree: true });
+
+    var hs = document.createElement('script');
+    hs.src = 'https://js-eu1.hsforms.net/forms/embed/146369200.js';
+    hs.defer = true;
+    document.body.appendChild(hs);
+  }
 })();
