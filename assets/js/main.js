@@ -214,10 +214,7 @@
 
     var videoId = videoFrame.getAttribute('data-video-id');
     var iframe = document.createElement('iframe');
-    // .video-embed (resources page) plays without YouTube's control bar;
-    // the main film keeps full controls.
-    var bare = videoFrame.classList.contains('video-embed') ? '&controls=0&modestbranding=1&iv_load_policy=3&playsinline=1' : '';
-    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1' + bare;
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1';
     iframe.title = videoFrame.getAttribute('data-video-title') || 'Shapeshifter film';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
