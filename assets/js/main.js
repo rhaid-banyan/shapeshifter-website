@@ -135,7 +135,7 @@
      consent-relevant content exists on THAT page (video, contact form). */
   var banner = document.createElement('div');
   banner.id = 'consent-banner';
-  var hasVideo = !!document.getElementById('video-frame');
+  var hasVideo = !!document.querySelector('[data-video-id]');
   var hasForm = !!document.querySelector('.hs-form-frame');
   var bannerText = hasVideo
     ? 'This site uses cookies for basic analytics and to play embedded YouTube video. We do not sell or share your personal information. Do you consent?'
@@ -204,20 +204,21 @@
   }
 
   /* ---------- video consent gate (index, platform) ---------- */
-  var videoFrame = document.getElementById('video-frame');
-  var videoPlayBtn = document.getElementById('video-play');
-  var videoUnlocked = false;
+  var videoFrames = document.querySelectorAll('[data-video-id]');
 
-  function playVideo() {
-    // Only load/play the YouTube iframe once consent is given — guarded
-    // to run once so a later re-consent can't reset playback.
-    if (videoUnlocked || !videoFrame) { return; }
-    videoUnlocked = true;
+  function playVideo(videoFrame) {
+    // Only load/play each YouTube iframe once consent is given — guarded
+    // to run once per frame so a later click can't reset playback.
+    if (videoFrame.getAttribute('data-video-loaded')) { return; }
+    videoFrame.setAttribute('data-video-loaded', '1');
 
     var videoId = videoFrame.getAttribute('data-video-id');
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1';
-    iframe.title = 'Shapeshifter film';
+    // .video-embed (resources page) plays without YouTube's control bar;
+    // the main film keeps full controls.
+    var bare = videoFrame.classList.contains('video-embed') ? '&controls=0&modestbranding=1&iv_load_policy=3&playsinline=1' : '';
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&autoplay=1' + bare;
+    iframe.title = videoFrame.getAttribute('data-video-title') || 'Shapeshifter film';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
     iframe.allowFullscreen = true;
@@ -225,16 +226,18 @@
     videoFrame.appendChild(iframe);
   }
 
-  if (videoPlayBtn) {
-    videoPlayBtn.addEventListener('click', function () {
+  videoFrames.forEach(function (frame) {
+    var playBtn = frame.querySelector('.video-play-btn');
+    if (!playBtn) { return; }
+    playBtn.addEventListener('click', function () {
       // The button itself says "Click to consent & watch" — so clicking
       // it IS giving consent, same as clicking Accept in the banner below.
       if (localStorage.getItem('ss-consent') !== 'accepted') {
         acceptConsent();
       }
-      playVideo();
+      playVideo(frame);
     });
-  }
+  });
 
   /* ---------- contact form consent gate (contact page) ---------- */
   var formUnlocked = false;
